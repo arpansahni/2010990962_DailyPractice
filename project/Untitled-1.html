@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background-color: rgb(141, 37, 221);
+        }
+        
+        p {
+            text-align: center;
+            /* justify-content: center; */
+            margin-top: 5%;
+            font-size: 50px;
+        }
+        
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        
+        input[type=number] {
+            -moz-appearance: textfield;
+        }
+        
+        #a {
+            color: black;
+            background-color: rgb(204, 42, 225);
+            text-align: center;
+            justify-content: center;
+            /* margin-top: 2%; */
+            margin-left: 34%;
+            cursor: pointer;
+            font-size: 100%;
+            /* padding-left: 13%;
+            padding-bottom: 1%;
+            padding-top: 1%;
+            padding-right: 13%; */
+            width: 30%;
+            height: 50px;
+            border: 2px solid black;
+            border-radius: 5px;
+        }
+        
+        #b {
+            text-align: center;
+            /* justify-content: center; */
+            margin: 3% 0% 3% 30%;
+            /* padding-right: 25%;
+            padding-left: 2%;
+            padding-top: 1%;
+            padding-bottom: 1%;  */
+            width:38%;
+            height: 60px;
+            border: 2px solid black;
+            border-radius: 5px;
+        }
+        
+        div {
+            background-color: rgb(20, 57, 90);
+            margin-top: 20vh;
+            margin-left: 50vw;
+            padding: auto;
+            /* text-align: center;
+            justify-content: center; */
+            border-radius: 9px;
+        }
+    </style>
+</head>
+
+<body>
+    <p>Enter a number to create a Square Shape</p>
+    <input type="numberOnly" max="99999" min="0" placeholder="Enter a valid number" id="b" required>
+    <button id="a" type="button" onclick="sumDigits()">Create Square Shape</button>
+    <div id="square"></div>
+</body>
+<script>
+    function sumDigits() {
+        var num = document.getElementById("b").value,
+            sum = 0;
+        if (num == "" || isNaN(num)) alert("Enter a 5 digit number");
+        if (num > 99999) {
+            alert("Number must be 5 Digit")
+        } else if (num < 0) {
+            alert("Number must be positive")
+        }
+        else if(num < 10000){
+            alert("Number must be five digit")
+        }
+
+        // else if () {
+        //     alert("Not a number")
+
+        // } 
+        else {
+            let count = 0;
+            while (num) {
+                sum += num % 10;
+                num = parseInt(num / 10);
+                count++;
+            }
+            document.getElementById("square").style.width = sum + 'px';
+            document.getElementById("square").style.height = sum + 'px';
+            document.getElementById("square").style.borderRadius = parseInt(sum / count) + 'px';
+
+
+            // rezultat.value = sum;
+        }
+
+    }
+
+    // function box() {
+    //     var width = document.getElementById("square").value;
+    //     var height = document.getElementById("square").value;
+    //     width = rezultat;
+    //     height = rezultat;
+
+    // }
+</script>
+
+</html>
